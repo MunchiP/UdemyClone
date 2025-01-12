@@ -2,19 +2,25 @@ package com.udemy.UdemyClone.Controlador;
 
 import com.udemy.UdemyClone.Modelo.User;
 import org.springframework.web.bind.annotation.*;
-
+@RestController
 public class UserController {
     private User user;
 
 
     /*TODO Metodos*/
 
+
+    @GetMapping("/h")//End point para mi metodo get user
+    public String holaMundo(){
+        return "HOLA MUNDO";
+    }
+
     /**************************************************
                             GET
     ************************************************* */
 
     //se usan anotaciones para los end point
-    @GetMapping("/url")//End point para mi metodo get user
+    @GetMapping("/getUser")//End point para mi metodo get user
    public User getUser(){
       return null;
    }
@@ -54,5 +60,4 @@ public class UserController {
     public User deleteUser(){
         return null;
     }
-
 }

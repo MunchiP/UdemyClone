@@ -3,6 +3,7 @@ package com.udemy.UdemyClone.Modelo;
 import java.util.Arrays;
 
 public class User {
+    private long id;
     private String nombre;
     private String apellido;
     private int edad;
@@ -12,6 +13,14 @@ public class User {
 
     public User(){
 
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -65,7 +74,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "nombre='" + nombre + '\'' +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", edad=" + edad +
                 ", email='" + email + '\'' +
