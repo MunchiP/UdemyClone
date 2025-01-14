@@ -1,14 +1,22 @@
 package com.udemy.UdemyClone.Controlador;
 
 import com.udemy.UdemyClone.Modelo.User;
+import com.udemy.UdemyClone.Servicios.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
+
 @RestController
+@RequestMapping(path = "api/udemy/user")
 public class UserController {
-    private User user;
+
+    /*adcedemos a los servicios*/
+    @Autowired
+    private UserService userService;
 
 
-    /*TODO Metodos*/
-
+    /*Metodos*/
 
     @GetMapping("/h")//End point para mi metodo get user
     public String holaMundo(){
@@ -20,44 +28,35 @@ public class UserController {
     ************************************************* */
 
     //se usan anotaciones para los end point
-    @GetMapping("/getUser")//End point para mi metodo get user
-   public User getUser(){
-      return null;
+    @GetMapping("/{id}")//End point para mi metodo get user
+   public Optional<User> getUser(@PathVariable("id") long id){
+      return userService.getUser(id);
    }
 
     /**************************************************
                             Post
      ************************************************* */
 
-    @PostMapping("url")
-    public User postUser(){
-        return null;
+    @PostMapping
+    public User postUser(@RequestBody User user){
+        return userService.postUser(user);
     }
 
     /**************************************************
                             Put
      ************************************************* */
 
-    @PutMapping("url")
-    public User putUser(){
-        return null;
-    }
-
-    /**************************************************
-                            Patch
-     ************************************************* */
-
-    @PatchMapping("url")
-    public User patchUser(){
-        return null;
+    @PutMapping()
+    public User putUser(User user){
+        return userService.putUser(user);
     }
 
     /**************************************************
                             Delete
      ************************************************* */
 
-    @DeleteMapping("url")
-    public User deleteUser(){
-        return null;
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable("id") long id){
+        userService.deleteUser(id);
     }
 }
