@@ -47,7 +47,7 @@ public class UserController {
      ************************************************* */
 
     @PutMapping()
-    public User putUser(User user){
+    public User putUser(@RequestBody User user){
         return userService.putUser(user);
     }
 
