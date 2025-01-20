@@ -13,17 +13,32 @@
     </div>
     <div class="derecha">
         <p> Inicia sesión para continuar tu experiencia de aprendizaje</p>
-        <input class="InputCorreo" type="text" placeholder="Correo electrónico">
-        <button class="btnCorreo">
-            <mat-icon fontIcon="mail" class="buscarIcon"></mat-icon> 
-            <!-- Verifica que el icono no sea delineado -->
-            <p>Continuar con correo electrónico</p>
-        </button>
+        
+        <form [formGroup]="formularioInicioSesion" (ngSubmit)="onSubmit()" action="">
+            <input class="InputCorreo" type="text" placeholder="Correo electrónico">
+           
+           <!-- se agregan validaciones -->
+           <div *ngIf = "formularioInicioSesion.get('correo')?.invalid && formularioInicioSesion.get('correo')?.touched">
+
+            <p *ngIf="formularioInicioSesion.get('correo')?.errors?.['required']">El correo es requerido</p>
+                <p *ngIf="formularioInicioSesion.get('correo')?.errors?.['email']">Ingrese correo valido</p>
+           </div>
+
+           <input class="InputPassword" type="text" placeholder="Contraseña" formControlName="password">
+           <!-- Validación de contraseña -->
+                <p *ngIf="formularioInicioSesion.get('password')?.errors?.['required']">La contraseña es obligatoria</p>
+
+            <button class="btnCorreo" >
+                <mat-icon fontIcon="mail" class="buscarIcon"></mat-icon> 
+                <!-- Verifica que el icono no sea delineado -->
+                <p>Continuar con correo electrónico</p>
+            </button>
+        </form>
 
         <div class="logos">
-            <img class="logoGoogle" src="Imagenes/Google.webp" alt="Googl">
-            <img class="logoFacebook" src="Imagenes/Facebook.webp" alt="Facebook">
-            <img class="logoApple" src="Imagenes/Facebook.webp" alt="Facebook">
+            <img class="logoIc" src="Imagenes/Google.jpg" alt="Googl">
+            <img class="logoIc" src="Imagenes/Facebbok.png" alt="Facebook">
+            <img class="logoIc" src="Imagenes/Apple-Logo.jpg" alt="Facebook">
         </div>
         
         <div class="Opciones">
