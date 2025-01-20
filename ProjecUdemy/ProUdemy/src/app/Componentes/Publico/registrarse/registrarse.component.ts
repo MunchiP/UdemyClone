@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { MenuComponent } from '../../../Servicios/menu/menu.component';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -16,6 +17,7 @@ import { CommonModule } from '@angular/common';
     // Importación de la linea arriba
     ReactiveFormsModule,
     CommonModule,
+    HttpClientModule,
     // MenuComponent
 
   ],
