@@ -1,1 +1,51 @@
-<p>registrarse works!</p>
+<div class="contenedor">
+    <div class="izquierda">
+        <img class="ImgIniSesion" src="Imagenes/InicioSesion.webp" alt="InisioSesion">
+    </div>
+
+
+    <div class="derecha">
+
+        <p> Regístrate y comienza a aprender</p>
+
+        <form [formGroup]="formularioRegistro" (ngSubmit)="onSubmit()">
+
+            <input class="InputNombre" type="text" placeholder="Nombre completo" formControlName="nombre">
+            <!-- Validación -->
+            <div *ngIf="formularioRegistro.get('nombre')?.invalid && formularioRegistro.get('nombre')?.touched">
+                <p *ngIf="formularioRegistro.get('nombre')?.errors?.['required']">El nombre es obligatorio</p>
+                <p *ngIf="formularioRegistro.get('nombre')?.errors?.['pattern']">El nombre solo puede contener letras</p>
+            </div>
+
+
+            <input class="InputCorreo" type="text" placeholder="Correo electrónico" formControlName="correo">
+            <!-- Validación -->
+            <div *ngIf="formularioRegistro.get('correo')?.invalid && formularioRegistro.get('correo')?.touched">
+                <p *ngIf="formularioRegistro.get('correo')?.errors?.['required']">El correo es obligatorio</p>
+                <p *ngIf="formularioRegistro.get('correo')?.errors?.['email']">Ingrese un correo electrónico válido</p>
+            </div>            
+            
+            
+            
+            <input class="InputPassword" type="text" placeholder="Contraseña" formControlName="password">
+            <!-- Validación -->
+            <div *ngIf="formularioRegistro.get('password')?.invalid && formularioRegistro.get('password')?.touched">
+                <p *ngIf="formularioRegistro.get('password')?.errors?.['required']">Contraseña obligatoria</p>
+                <p *ngIf="formularioRegistro.get('password')?.errors?.['minlength']">La contraseña debe tener mínimo 8 caracteres</p>
+            </div>              
+            
+            
+            <button class="btnRegistrarse" type="submit" [disabled]="formularioRegistro.invalid">Registrarse</button>
+                <!-- <p>Registrarse</p> -->
+        </form>
+
+        <div class="terminosCondiciones">
+            <p> Al registrarse, aceptas nuestras <a href="">Condiciones de uso </a> y nuestras <a href="">Política de privacidad</a></p>
+        </div>
+
+        <button class="btnIniciar">
+            <p>¿Ya tienes una cuenta? <a href="../iniciar-sesion/iniciar-sesion.component.html">Iniciar sesión</a></p>
+        </button>
+
+    </div>
+</div>

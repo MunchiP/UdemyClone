@@ -14,5 +14,9 @@ import {MatIconModule} from '@angular/material/icon';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
+  isMenuOpen = false;
 
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }
