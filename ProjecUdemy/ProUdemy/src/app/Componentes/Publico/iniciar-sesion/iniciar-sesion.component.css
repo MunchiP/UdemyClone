@@ -1,10 +1,11 @@
+/* ------------CSS general */
 .contenedor{
     display: flex;
     justify-content: space-between;
     margin-top: 4rem;
 }
 
-
+/* ------------CSS izquierda */
 .izquierda{
     flex: 1;
     justify-content: center;
@@ -12,38 +13,72 @@
 }
 
 .izquierda img{
-    height: 510px;
-    margin-left: 2rem;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    height: 720px;
+    margin-left: 9rem;
 }
 
+
+/* ------------CSS derecha */
 .derecha{
-    flex: 2;
+    /* flex: 2; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 300px;
+    margin-top: 0;
+    /* background-color: blue; */
+    /* Opcion de padding  */
+    padding-left: 12rem;
+    padding-right: 22rem;
+ 
 }
 
 .textPrincipal{
-    width: 200px;
-    font-size: 25px;
+    font-size: 33px;
+    width: 450px;
+    margin-top: -4rem;
     font-weight: bolder;
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(45, 45, 45);
     text-shadow: 0px 0px 5px  rgba(0, 0, 0, 0.248);
 }
 
-.InputCorreo{
-    width: 250px;
+.InputCorreo, .InputPassword{
+    width: 410px;
+    height: 55px;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: rgb(45, 45, 45) ;
+}
+
+.btnCorreo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 410px;
     height: 50px;
     border-radius: 5px;
-    border-color: 892de1;
+    background-color: rgb(137, 45, 225);
+    color: antiquewhite;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 /* Dos movimientos, cuando pasa mouse y cuando se hace click */
 
 .logoIc{
-    height: 20px;
-    margin: 2rem;
+    height: 25px;
+    padding: 10px;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: rgb(137, 45, 225);
 }
 

@@ -24,7 +24,7 @@
             <p *ngIf="formularioInicioSesion.get('correo')?.errors?.['required']">El correo es requerido</p>
                 <p *ngIf="formularioInicioSesion.get('correo')?.errors?.['email']">Ingrese correo valido</p>
            </div>
-
+           <br>
            <input class="InputPassword" type="text" placeholder="Contraseña" formControlName="password">
            <!-- Validación de contraseña -->
                 <p *ngIf="formularioInicioSesion.get('password')?.errors?.['required']">La contraseña es obligatoria</p>
