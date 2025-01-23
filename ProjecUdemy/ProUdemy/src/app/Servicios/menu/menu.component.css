@@ -58,15 +58,21 @@
 
 .btnEnMenu.ej1 {
   margin-left: 20px;
-  background-color: #ffffff;
+  /* color: #e12d2d; */
+  background-color: rgb(255, 255, 255);
+}
+
+.btnEnMenu.ej1:hover {
+  color: #892de1;
 }
 
 .btnEnMenu.ej2 {
-  background-color: #000000;
+  background-color: #892de1;
 }
 
 .btnej2{
   color: #F6F7F9;
+  background-color: #892de1;
 }
 
 .btnEnMenu.ej3 {
@@ -84,7 +90,7 @@ a{
   border-radius: none;
   padding: 10px;
   text-decoration: none;
-  color: black;
+  /* color: black; */
   font-size: 14px;
   font-weight: bold;
 }

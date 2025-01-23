@@ -11,19 +11,20 @@
     <div class="izquierda">
         <img class="ImgIniSesion" src="Imagenes/InicioSesion.webp" alt="InisioSesion">
     </div>
+
     <div class="derecha">
-        <p> Inicia sesión para continuar tu experiencia de aprendizaje</p>
+        <p class="textPrincipal"> Inicia sesión para continuar tu experiencia de aprendizaje</p>
         
         <form [formGroup]="formularioInicioSesion" (ngSubmit)="onSubmit()" action="">
             <input class="InputCorreo" type="text" placeholder="Correo electrónico">
-           
+           <br>
            <!-- se agregan validaciones -->
            <div *ngIf = "formularioInicioSesion.get('correo')?.invalid && formularioInicioSesion.get('correo')?.touched">
 
             <p *ngIf="formularioInicioSesion.get('correo')?.errors?.['required']">El correo es requerido</p>
                 <p *ngIf="formularioInicioSesion.get('correo')?.errors?.['email']">Ingrese correo valido</p>
            </div>
-
+           <br>
            <input class="InputPassword" type="text" placeholder="Contraseña" formControlName="password">
            <!-- Validación de contraseña -->
                 <p *ngIf="formularioInicioSesion.get('password')?.errors?.['required']">La contraseña es obligatoria</p>
