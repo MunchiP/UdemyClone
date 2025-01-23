@@ -39,7 +39,7 @@ public class UserController {
                             Post
      ************************************************* */
 
-    @PostMapping
+    @PostMapping("registro")
     public User postUser(@RequestBody User user){
         return userService.postUser(user);
     }
@@ -48,7 +48,7 @@ public class UserController {
                             Put
      ************************************************* */
 
-    @PutMapping("/registro")
+    @PutMapping()
     public User putUser(@RequestBody User user){
         return userService.putUser(user);
     }
