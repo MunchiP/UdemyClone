@@ -34,13 +34,20 @@ public class UserController {
    }
 
     /**************************************************
-                            Post
+                            Post-Registro
      ************************************************* */
 
-    @PostMapping
+    @PostMapping("/registro")
     public User postUser(@RequestBody User user){
         return userService.postUser(user);
     }
+
+
+    /**************************************************
+                        Iniciar-secion
+     ************************************************* */
+
+
 
     /**************************************************
                             Put
