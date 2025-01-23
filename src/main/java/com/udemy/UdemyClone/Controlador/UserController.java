@@ -48,7 +48,7 @@ public class UserController {
                             Put
      ************************************************* */
 
-    @PutMapping()
+    @PutMapping("/registro")
     public User putUser(@RequestBody User user){
         return userService.putUser(user);
     }

@@ -23,11 +23,11 @@ export default {
   }
 ],
   assets: {
-    'index.csr.html': {size: 24309, hash: '996bb8e13c1a417089ea120a94a2141a8157be6579dea3121da3ccf6c5d68ea6', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 17883, hash: 'd52543d8818aab9391e250000c8ffd9dcf046ac7cd42bc1e79a474d1ed2303aa', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
-    'iniciar-sesion/index.html': {size: 46374, hash: '1000f3b3b574eae799bc52474a42e2dcc8b7cef7f86ea01c5c535cc7613d63e7', text: () => import('./assets-chunks/iniciar-sesion_index_html.mjs').then(m => m.default)},
-    'index.html': {size: 44255, hash: '53b5a2f7934be38c727f2e899c29cfdf45a6092f59275610196f4c93f4550cbe', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
-    'registrarse/index.html': {size: 44307, hash: 'fab655622e9f6d7c941208d39ebb6cc21426c59abe5a6fdaa1e1de8e15832384', text: () => import('./assets-chunks/registrarse_index_html.mjs').then(m => m.default)},
+    'index.csr.html': {size: 24309, hash: '70862a6b23584094ac1b79f5c46b645583621ffaf60d6059210103c0ce6d9f6a', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 17883, hash: '8bcb4cd9e24734f7755d051a8bc0b307e1efb6e12bffdeb8a8f91e3cbb2768a8', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'iniciar-sesion/index.html': {size: 47768, hash: 'a6874ffd6c05197422013e3083f8490be9dbf853a16608dac278951e2f1fce8a', text: () => import('./assets-chunks/iniciar-sesion_index_html.mjs').then(m => m.default)},
+    'index.html': {size: 44334, hash: 'bbd0df51748c45335848534192640ecb81f932421929c5abca4e54ad10f28ac0', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
+    'registrarse/index.html': {size: 46323, hash: 'e0978de9da8b20d374c55675aa60869461317f026774f049bce1c8cfb7aedfa4', text: () => import('./assets-chunks/registrarse_index_html.mjs').then(m => m.default)},
     'styles-CXQUZ3PB.css': {size: 6979, hash: 'mYIPdabeAag', text: () => import('./assets-chunks/styles-CXQUZ3PB_css.mjs').then(m => m.default)}
   },
 };
