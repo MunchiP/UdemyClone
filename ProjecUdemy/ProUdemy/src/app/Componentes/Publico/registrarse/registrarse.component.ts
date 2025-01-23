@@ -40,7 +40,7 @@ export class RegistrarseComponent {
   onSubmit(): void {
     if (this.formularioRegistro.valid) {
       const datosFormulario = this.formularioRegistro.value;
-      this.http.post('http://localhost', datosFormulario).subscribe({
+      this.http.post('http://localhost:8080/api/udemy/user/registro', datosFormulario).subscribe({
         next: (response) => {
           console.log("Usuario registado:", response);
           alert("Usuario registrado exitosamente");
