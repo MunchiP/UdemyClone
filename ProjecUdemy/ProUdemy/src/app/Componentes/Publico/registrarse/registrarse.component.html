@@ -18,11 +18,11 @@
             </div>
 
 
-            <input class="InputCorreo" type="text" placeholder="Correo electrónico" formControlName="correo">
+            <input class="InputCorreo" type="text" placeholder="Correo electrónico" formControlName="email">
             <!-- Validación -->
-            <div *ngIf="formularioRegistro.get('correo')?.invalid && formularioRegistro.get('correo')?.touched">
-                <p *ngIf="formularioRegistro.get('correo')?.errors?.['required']">El correo es obligatorio</p>
-                <p *ngIf="formularioRegistro.get('correo')?.errors?.['email']">Ingrese un correo electrónico válido</p>
+            <div *ngIf="formularioRegistro.get('email')?.invalid && formularioRegistro.get('email')?.touched">
+                <p *ngIf="formularioRegistro.get('email')?.errors?.['required']">El correo es obligatorio</p>
+                <p *ngIf="formularioRegistro.get('email')?.errors?.['email']">Ingrese un correo electrónico válido</p>
             </div>            
             
             

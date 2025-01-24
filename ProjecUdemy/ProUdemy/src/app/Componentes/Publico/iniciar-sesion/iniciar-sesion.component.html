@@ -16,13 +16,17 @@
         <p class="textPrincipal"> Inicia sesión para continuar tu experiencia de aprendizaje</p>
         
         <form [formGroup]="formularioInicioSesion" (ngSubmit)="onSubmit()" action="">
-            <input class="InputCorreo" type="text" placeholder="Correo electrónico">
+            <div class="input-container">
+                <input class="InputCorreo" type="text" id="correo" formControlName="correo">
+                <label for="correo"> Correo electrónico</label>
+            </div>
+
            <br>
            <!-- se agregan validaciones -->
-           <div *ngIf = "formularioInicioSesion.get('correo')?.invalid && formularioInicioSesion.get('correo')?.touched">
+           <div *ngIf = "formularioInicioSesion.get('email')?.invalid && formularioInicioSesion.get('email')?.touched">
 
-            <p *ngIf="formularioInicioSesion.get('correo')?.errors?.['required']">El correo es requerido</p>
-                <p *ngIf="formularioInicioSesion.get('correo')?.errors?.['email']">Ingrese correo valido</p>
+            <p *ngIf="formularioInicioSesion.get('email')?.errors?.['required']">El correo es requerido</p>
+                <p *ngIf="formularioInicioSesion.get('email')?.errors?.['email']">Ingrese correo valido</p>
            </div>
            <br>
            <input class="InputPassword" type="text" placeholder="Contraseña" formControlName="password">

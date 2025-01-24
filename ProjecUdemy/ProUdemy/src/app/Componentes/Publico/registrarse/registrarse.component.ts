@@ -32,7 +32,7 @@ export class RegistrarseComponent {
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.formularioRegistro = this.fb.group({
       nombre: ['', Validators.required],
-      correo: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
