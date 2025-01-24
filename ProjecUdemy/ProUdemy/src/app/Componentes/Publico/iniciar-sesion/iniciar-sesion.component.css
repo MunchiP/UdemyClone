@@ -48,13 +48,13 @@
     text-shadow: 0px 0px 5px  rgba(0, 0, 0, 0.248);
 }
 
-.InputCorreo, .InputPassword{
+/* .InputCorreo, .InputPassword{
     width: 410px;
     height: 55px;
     border-radius: 5px;
     border: 1px solid;
     border-color: rgb(45, 45, 45) ;
-}
+} */
 
 .btnCorreo{
     display: flex;
@@ -67,6 +67,36 @@
     color: antiquewhite;
     font-size: 15px;
     font-weight: bold;
+}
+
+
+/* ----------Derecha movimiento del input */
+.input-container{
+    position: relative;
+}
+
+.InputCorreo{
+    width: 410px;
+    height: 55px;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: rgb(45, 45, 45);
+    /* ajustado al movimiento  */
+    outline: none;
+    background: transparent;
+}
+
+.InputCorreo:hover{
+    border: 2px solid;
+    border-color: rgb(137, 45, 225);
+}
+
+.InputCorreo:focus{
+    border-color: red;
+}
+
+.input-container label{
+    position: absolute;
 }
 
 /* Dos movimientos, cuando pasa mouse y cuando se hace click */
