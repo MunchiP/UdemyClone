@@ -73,6 +73,7 @@
 /* ----------Derecha movimiento del input */
 .input-container{
     position: relative;
+    margin-top: 20px;
 }
 
 .InputCorreo{
@@ -86,17 +87,41 @@
     background: transparent;
 }
 
-.InputCorreo:hover{
+/* .InputCorreo:hover{
     border: 2px solid;
     border-color: rgb(137, 45, 225);
-}
+    transition: 0.3s ease all;
+    pointer-events: none;
+} */
 
 .InputCorreo:focus{
-    border-color: red;
+    border: 2px solid;
+    border-color: rgb(137, 45, 225);
+    transition: 0.3s ease all;
+    pointer-events: none;
 }
 
 .input-container label{
     position: absolute;
+    left: 12px;
+    top: 18px;
+    font-size: 16px;
+    color: #888;
+    transition: 0.3s ease all;
+    pointer-events: none;
+}
+
+/* Codigo exacto del movimiento */
+.InputCorreo:focus + label,
+.InputCorreo:not(:placeholder-shown) + label {
+    top: -8px;
+    left: 10px;
+    font-size: 12px;
+    color: aqua;
+}
+
+.InputCorreo::placeholder{
+    color: transparent;
 }
 
 /* Dos movimientos, cuando pasa mouse y cuando se hace click */
