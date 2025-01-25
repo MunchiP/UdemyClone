@@ -27,6 +27,7 @@ export class DatosPersonalesComponent implements OnInit {
       next: (response) => {
         // Guardo el nombre que recibo en la variable
         // this.nombre = response;
+        
         // como Arcos me envía un objeto y no sólo la variable específica debería usarlo así:
         this.nombre = response.nombre;
       }, error: (err) =>{
