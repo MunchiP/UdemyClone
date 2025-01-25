@@ -1,7 +1,9 @@
 package com.udemy.UdemyClone.Servicios;
 
+import com.fasterxml.jackson.databind.DatabindContext;
 import com.udemy.UdemyClone.Modelo.User;
 import com.udemy.UdemyClone.Repositorio.UserRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +20,33 @@ public class UserService {
     UserRepository userRepository;
 
     /*
-    * optener usuario
+    * optener user por email
     * */
 
-    //usamos optional por que no sabemos si nos va a llegar el usuario
-    public Optional<User>getUser(long id){
-        return userRepository.findById(id);
+    public User getUserEmail(String email){
+        return userRepository.findByEmail(email);
+    }
+
+
+    /*
+    * iniciar seccion
+    * */
+
+    public User inicarSesion(String email, String password) {
+        User user = getUserEmail(email);
+        if (user!= null & user.getPassword().equals(password)){
+            return user;
+        };
+        return null;
+    }
+
+    /*
+     * optener nombre y apellido
+     * */
+
+    public User getUserNombreApellido(){
+        DatabindContext session = null;
+        return (User) session.getAttribute("usuario");
     }
 
     /*
