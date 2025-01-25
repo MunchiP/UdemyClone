@@ -46,8 +46,8 @@ public class UserController {
                         Iniciar-secion
      ************************************************* */
     @GetMapping("/InicioPrivado")
-    public boolean iniciarSesion( String email, String password, HttpSession session){
-        return userService.inicarSesion(email,password, session);
+    public User iniciarSesion( String email, String password){
+        return userService.inicarSesion(email,password);
     }
 
     /**************************************************

@@ -32,13 +32,12 @@ public class UserService {
     * iniciar seccion
     * */
 
-    public Boolean inicarSesion(String email, String password, HttpSession session) {
+    public User inicarSesion(String email, String password) {
         User user = getUserEmail(email);
         if (user!= null & user.getPassword().equals(password)){
-            session.setAttribute("ususario",user);
-            return true;
+            return user;
         };
-        return false;
+        return null;
     }
 
     /*
