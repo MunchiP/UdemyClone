@@ -76,7 +76,7 @@
     margin-top: 20px;
 }
 
-.InputCorreo{
+.InputCorreo , .InputPassword{
     width: 410px;
     height: 55px;
     border-radius: 5px;
@@ -94,7 +94,7 @@
     pointer-events: none;
 } */
 
-.InputCorreo:focus{
+.InputCorreo:focus, .InputPassword:focus{
     border: 2px solid;
     border-color: rgb(137, 45, 225);
     transition: 0.3s ease all;
@@ -114,13 +114,22 @@
 /* Codigo exacto del movimiento */
 .InputCorreo:focus + label,
 .InputCorreo:not(:placeholder-shown) + label {
-    top: -8px;
+    top: 5px;
     left: 10px;
     font-size: 12px;
-    color: aqua;
+    color: rgb(33, 37, 37);
 }
 
-.InputCorreo::placeholder{
+/* Codigo exacto del movimiento */
+.InputPassword:focus + label,
+.InputPassword:not(:placeholder-shown) + label {
+    top: 5px;
+    left: 10px;
+    font-size: 12px;
+    color: rgb(33, 37, 37);
+}
+
+.InputCorreo::placeholder, .InputPassword::placeholder{
     color: transparent;
 }
 
