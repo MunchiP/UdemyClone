@@ -2,6 +2,7 @@ package com.udemy.UdemyClone.Controlador;
 
 import com.udemy.UdemyClone.Modelo.User;
 import com.udemy.UdemyClone.Servicios.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,10 +16,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
-    /**************************************************
-                            prueba
-     ************************************************* */
+    /*Metodos*/
 
     @GetMapping("/h")//End point para mi metodo get user
     public String holaMundo(){
@@ -30,18 +28,26 @@ public class UserController {
     ************************************************* */
 
     //se usan anotaciones para los end point
-    @GetMapping("/{id}")//End point para mi metodo get user
-   public Optional<User> getUser(@PathVariable("id") long id){
-      return userService.getUser(id);
-   }
+    //@GetMapping("/data")//End point para mi metodo get user
+
+
+   @GetMapping()
+   public User getUserEmail(@PathVariable("email") String email){ return userService.getUserEmail(email);}
 
     /**************************************************
-                            Post
+                            Post-Registro
      ************************************************* */
 
-    @PostMapping("registro")
-    public User postUser(@RequestBody User user){
-        return userService.postUser(user);
+    @PostMapping("/registro")
+    public User postUser(@RequestBody User user){return userService.postUser(user);}
+
+
+    /**************************************************
+                        Iniciar-secion
+     ************************************************* */
+    @GetMapping("/iniciar-sesion")
+    public User iniciarSesion( String email, String password){
+        return userService.inicarSesion(email,password);
     }
 
     /**************************************************
