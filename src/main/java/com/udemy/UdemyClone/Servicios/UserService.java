@@ -26,7 +26,26 @@ public class UserService {
         return userRepository.findById(id);
     }
 
+    /*
+    * optener user por email
+    * */
 
+    public User getUserEmail(String email){
+        return userRepository.findByEmail(email);
+    }
+
+
+    /*
+    * iniciar seccion
+    * */
+
+    public Boolean inicarSesion(String email, String password) {
+        User user = getUserEmail(email);
+        if (user.getPassword().equals(password)){
+            return true;
+        };
+        return false;
+    }
 
     /*
      * guardar usuario

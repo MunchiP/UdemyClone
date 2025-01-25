@@ -15,7 +15,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
     /*Metodos*/
 
     @GetMapping("/h")//End point para mi metodo get user
@@ -29,25 +28,28 @@ public class UserController {
 
     //se usan anotaciones para los end point
     @GetMapping("/{id}")//End point para mi metodo get user
-   public Optional<User> getUser(@PathVariable("id") long id){
+    public Optional<User> getUser(@PathVariable("id") long id){
       return userService.getUser(id);
    }
+
+   @GetMapping()
+   public User getUserEmail(@PathVariable("email") String email){ return userService.getUserEmail(email);}
 
     /**************************************************
                             Post-Registro
      ************************************************* */
 
     @PostMapping("/registro")
-    public User postUser(@RequestBody User user){
-        return userService.postUser(user);
-    }
+    public User postUser(@RequestBody User user){return userService.postUser(user);}
 
 
     /**************************************************
                         Iniciar-secion
      ************************************************* */
-
-
+    @GetMapping("/InicioPrivado")
+    public boolean iniciarSesion( String email, String password){
+        return userService.inicarSesion(email,password);
+    }
 
     /**************************************************
                             Put
