@@ -46,8 +46,11 @@ public class UserController {
                         Iniciar-secion
      ************************************************* */
     @PostMapping("/iniciar-sesion")
-    public User iniciarSesion( String email, String password){
-        return userService.inicarSesion(email,password);
+    public User iniciarSesion(@RequestBody User user){
+        System.out.println("/**************************************************");
+        System.out.println("Datos: " + user);
+        System.out.println("/**************************************************");
+        return userService.inicarSesion(user.getEmail(), user.getPassword() );
     }
 
     /**************************************************
