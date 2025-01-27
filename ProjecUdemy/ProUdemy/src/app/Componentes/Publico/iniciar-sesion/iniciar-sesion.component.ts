@@ -35,7 +35,7 @@ export class IniciarSesionComponent {
     private router: Router,
   ) {
     this.formularioInicioSesion = this.fb.group({
-      correo:['', [Validators.required, Validators.email]],
+      email:['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
     })
   }
@@ -44,7 +44,7 @@ export class IniciarSesionComponent {
     if(this.formularioInicioSesion){
       const credenciales = this.formularioInicioSesion.value;
 
-      this.http.post('http://localhost:8080/api/udemy/user/iniciar-sesion', credenciales).subscribe({
+      this.http.get('http://localhost:8080/api/udemy/user/iniciar-sesion', credenciales).subscribe({
         next:(response: any) => {
           console.log('inicio exitoso', response);
           // localStorage.setItem('token',response.token)
