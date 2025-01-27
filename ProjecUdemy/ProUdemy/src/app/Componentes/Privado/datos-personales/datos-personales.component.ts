@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 // Componente importado OJOOOOOOOOO Json
-import { SolicitudesComponent, NombreResponse, ApellidoResponse } from '../../../Servicios/solicitudes/solicitudes.component';
+import { SolicitudesService } from '../../../Servicios/solicitud/solicitudes.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 // Componente importado OJOOOOOOOOO String
 // import { SolicitudesComponent, } from '../../../Servicios/solicitudes/solicitudes.component';
 
-
-
 @Component({
   selector: 'app-datos-personales',
-  imports: [
-    // SolicitudesComponent,
-  ],
+  standalone: true,
+  imports: [  HttpClientModule   ],
+  providers: [SolicitudesService], 
   templateUrl: './datos-personales.component.html',
   styleUrl: './datos-personales.component.css'
 })
@@ -20,10 +20,10 @@ export class DatosPersonalesComponent implements OnInit {
   nombre: string = '';
   apellido: string = '';
 
-  constructor(private solicitudesComponent: SolicitudesComponent) {}
+  constructor(private solicitudesService: SolicitudesService) {}
 
   ngOnInit(): void {
-    this.solicitudesComponent.getNombre().subscribe({
+    this.solicitudesService.getNombre().subscribe({
       next: (response) => {
         // Guardo el nombre que recibo en la variable
         // this.nombre = response;
@@ -34,7 +34,7 @@ export class DatosPersonalesComponent implements OnInit {
         console.error('Error en el nombre', err);
       }
     }), 
-    this.solicitudesComponent.getApellido().subscribe({
+    this.solicitudesService.getApellido().subscribe({
       next: (response) => {
         // Guardo el nombre que recibo en la variable
         this.apellido = response.apellido;
