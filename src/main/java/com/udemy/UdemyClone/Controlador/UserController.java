@@ -24,18 +24,18 @@ public class UserController {
     }
 
     /**************************************************
-                            GET
-    ************************************************* */
+     GET
+     ************************************************* */
 
     //se usan anotaciones para los end point
     //@GetMapping("/data")//End point para mi metodo get user
 
 
-   @GetMapping()
-   public User getUserEmail(@PathVariable("email") String email){ return userService.getUserEmail(email);}
+    @GetMapping()
+    public User getUserEmail(@PathVariable("email") String email){ return userService.getUserEmail(email);}
 
     /**************************************************
-                            Post-Registro
+     Post-Registro
      ************************************************* */
 
     @PostMapping("/registro")
@@ -43,15 +43,18 @@ public class UserController {
 
 
     /**************************************************
-                        Iniciar-secion
+     Iniciar-secion
      ************************************************* */
-    @GetMapping("/InicioPrivado")
-    public User iniciarSesion( String email, String password){
-        return userService.inicarSesion(email,password);
+    @PostMapping("/iniciar-sesion")
+    public User iniciarSesion(@RequestBody User user){
+        System.out.println("/**************************************************");
+        System.out.println("Datos: " + user);
+        System.out.println("/**************************************************");
+        return userService.inicarSesion(user.getEmail(), user.getPassword() );
     }
 
     /**************************************************
-                            Put
+     Put
      ************************************************* */
 
     @PutMapping()
@@ -60,7 +63,7 @@ public class UserController {
     }
 
     /**************************************************
-                            Delete
+     Delete
      ************************************************* */
 
     @DeleteMapping("/{id}")

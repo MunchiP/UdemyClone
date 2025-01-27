@@ -10,18 +10,18 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 /*
-*---@Service---
-*utilizan normalmente para implementar la lógica de negocio de tu aplicación,
-*separándola de la lógica de acceso a datos (@Repository) y del manejo de
-*peticiones HTTP (@Controller).*/
+ *---@Service---
+ *utilizan normalmente para implementar la lógica de negocio de tu aplicación,
+ *separándola de la lógica de acceso a datos (@Repository) y del manejo de
+ *peticiones HTTP (@Controller).*/
 @Service
 public class UserService {
     @Autowired
     UserRepository userRepository;
 
     /*
-    * optener user por email
-    * */
+     * optener user por email
+     * */
 
     public User getUserEmail(String email){
         return userRepository.findByEmail(email);
@@ -29,15 +29,16 @@ public class UserService {
 
 
     /*
-    * iniciar seccion
-    * */
+     * iniciar seccion
+     * */
 
     public User inicarSesion(String email, String password) {
         User user = getUserEmail(email);
-        if (user!= null & user.getPassword().equals(password)){
+        if (user!= null && user.getPassword().equals(password)){
             return user;
         };
-        return null;
+
+        throw new IllegalArgumentException("Correo o contraseña incorrectos");
     }
 
     /*
@@ -62,7 +63,7 @@ public class UserService {
      * */
 
     public User putUser(User user){
-         return userRepository.save(user);
+        return userRepository.save(user);
     }
 
 
