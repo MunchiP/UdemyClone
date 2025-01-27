@@ -42,7 +42,11 @@ export interface ApellidoResponse {
   apellido: string;
 }
 
-export class SolicitudesComponent {
+@Injectable({
+  providedIn: 'root',  // Asegura que el servicio esté disponible globalmente
+})
+
+export class SolicitudesService {
   private apiUrl = 'http://localhost:8080/api/udemy/user/data';
 
   constructor(private http: HttpClient) {}
