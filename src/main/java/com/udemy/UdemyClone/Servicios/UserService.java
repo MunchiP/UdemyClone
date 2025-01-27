@@ -34,10 +34,11 @@ public class UserService {
 
     public User inicarSesion(String email, String password) {
         User user = getUserEmail(email);
-        if (user!= null & user.getPassword().equals(password)){
+        if (user!= null && user.getPassword().equals(password)){
             return user;
         };
-        return null;
+
+        throw new IllegalArgumentException("Correo o contraseña incorrectos");
     }
 
     /*
