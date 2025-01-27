@@ -46,8 +46,6 @@ export class IniciarSesionComponent {
 
       this.http.post('http://localhost:8080/api/udemy/user/iniciar-sesion', credenciales).subscribe({
         next:(response: any) => {
-          console.log('inicio exitoso', response);
-          console.log('**************************', response);
           console.log(credenciales);
           // localStorage.setItem('token',response.token)
           this.router.navigate(['/InicioPrivado'])

@@ -1,7 +1,8 @@
 {
   "routes": {
     "/": {},
-    "/iniciar-sesion": {},
-    "/registrarse": {}
+    "/Iniciar-sesion": {},
+    "/InicioPrivado": {},
+    "/Registrarse": {}
   }
 }
