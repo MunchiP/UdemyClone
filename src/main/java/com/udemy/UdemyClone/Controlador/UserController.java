@@ -45,7 +45,7 @@ public class UserController {
     /**************************************************
                         Iniciar-secion
      ************************************************* */
-    @GetMapping("/iniciar-sesion")
+    @PostMapping("/iniciar-sesion")
     public User iniciarSesion( String email, String password){
         return userService.inicarSesion(email,password);
     }
