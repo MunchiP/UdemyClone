@@ -11,6 +11,8 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-datos-personales',
   standalone: true,
   imports: [  HttpClientModule   ],
+  // Debido a que genera un error en la inyección del servicio se realiza 
+  // esto para que se importe correctamente
   providers: [SolicitudesService], 
   templateUrl: './datos-personales.component.html',
   styleUrl: './datos-personales.component.css'
