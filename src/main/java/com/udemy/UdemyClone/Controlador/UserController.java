@@ -47,9 +47,6 @@ public class UserController {
      ************************************************* */
     @PostMapping("/iniciar-sesion")
     public User iniciarSesion(@RequestBody User user){
-        System.out.println("/**************************************************");
-        System.out.println("Datos: " + user);
-        System.out.println("/**************************************************");
         return userService.inicarSesion(user.getEmail(), user.getPassword() );
     }
 
