@@ -12,6 +12,7 @@ import { FormGroup, FormBuilder, Validators, } from '@angular/forms';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthServiceService } from '../../../Servicios/solicitud/auth-service.service';
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -33,6 +34,7 @@ export class IniciarSesionComponent {
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router,
+    private authService: AuthServiceService,
   ) {
     this.formularioInicioSesion = this.fb.group({
       email:['', [Validators.required, Validators.email]],
@@ -40,23 +42,50 @@ export class IniciarSesionComponent {
     })
   }
 
-  onSubmit(): void{
-    if(this.formularioInicioSesion){
-      const credenciales = this.formularioInicioSesion.value;
+  // Se modifica este métdo para persistir el usuario
+  // onSubmit(): void{
+  //   if(this.formularioInicioSesion){
+  //     const credenciales = this.formularioInicioSesion.value;
 
-      this.http.post('http://localhost:8080/api/udemy/user/iniciar-sesion', credenciales).subscribe({
-        next:(response: any) => {
-          console.log(credenciales);
-          // localStorage.setItem('token',response.token)
-          this.router.navigate(['/InicioPrivado'])
-        },
-        error: (error) => {
-          console.error('Error en el inicio de sesion', error);
-          alert('Correo o contraseña incorrectos')
-        },
-      })
-    } else {
-      alert('Por favor completa el formulario correctamente')
+  //     this.http.post('http://localhost:8080/api/udemy/user/iniciar-sesion', credenciales).subscribe({
+  //       next:(response: any) => {
+  //         console.log(credenciales);
+  //         // localStorage.setItem('token',response.token)
+  //         this.router.navigate(['/InicioPrivado'])
+  //       },
+  //       error: (error) => {
+  //         console.error('Error en el inicio de sesion', error);
+  //         alert('Correo o contraseña incorrectos')
+  //       },
+  //     })
+  //   } else {
+  //     alert('Por favor completa el formulario correctamente')
+  //   }
+  // }
+
+
+
+  onSubmit(): void
+  {
+    if (this.formularioInicioSesion.valid)
+    {
+      const credenciales = this.formularioInicioSesion.value;
+      this.http.post('http://localhost:8080/api/udemy/user/iniciar-sesion', credenciales).subscribe(
+      {
+        next: (response: any) =>
+          {
+            this.authService.setUsuario(response);
+            this.router.navigate(['/InicioPrivado']);
+          },
+          error: (error) => 
+          {
+            console.error('Error en el inicio de sesion', error);
+            alert('Correo o contraseña incorrectos');
+          },
+      });
+    } else 
+    {
+      alert('Por favor completa el formulario correctamente');
     }
   }
 
